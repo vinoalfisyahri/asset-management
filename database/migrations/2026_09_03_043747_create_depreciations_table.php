@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('depreciations', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kategori');
+            $table->foreignId('asset_id')->constrained('assets')->onDelete('cascade');
+            $table->year('tahun');
+            $table->decimal('nilai_penyusutan', 15, 2);
+            $table->decimal('nilai_sisa', 15, 2);
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('depreciations');
     }
 };
