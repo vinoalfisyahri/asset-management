@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\SubmissionsController;
+use App\Http\Controllers\DepreciationsController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::resource('assets', AssetController::class);
+Route::resource('categories', CategoriesController::class);
+Route::resource('items', ItemsController::class);
+Route::resource('submissions', SubmissionsController::class);
+Route::resource('depreciations', DepreciationsController::class);

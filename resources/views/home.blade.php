@@ -48,6 +48,12 @@
                     <h3>{{ $pendingPengajuan }}</h3>
                 </div>
             </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-secondary p-3 shadow-sm">
+                    <h5>Data Penyusutan</h5>
+                    <h3>{{ $totalPenyusutan }}</h3>
+                </div>
+            </div>
         </div>
 
         <!-- Tabel Asset Terbaru -->

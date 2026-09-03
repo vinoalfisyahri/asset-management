@@ -9,7 +9,7 @@ class Submissions extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
+    protected $table = 'submissions';
     public function asset() {
         return $this->belongsTo(Assets::class);
     }

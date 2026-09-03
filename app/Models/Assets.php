@@ -11,14 +11,14 @@ class Assets extends Model
     protected $guarded = ['id'];
 
     public function item() {
-        return $this->belongsTo(Items::class);
+        return $this->belongsTo(Items::class, 'item_id');
     }
 
     public function submissions() {
-        return $this->hasMany(Submissions::class);
+        return $this->hasMany(Submissions::class, 'asset_id');
     }
 
     public function depreciations() {
-        return $this->hasMany(Depreciations::class);
+        return $this->hasMany(Depreciations::class, 'asset_id');
     }
 }
